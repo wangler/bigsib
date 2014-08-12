@@ -52,9 +52,6 @@ function initialize() {
       mapOptions);
 
 
-// TOGGLE BOUNCE
-  //google.maps.event.addListener(marker, 'click', toggleBounce);
-
 
 //CUSTOMIZING MAP
   var styledMapOptions = {
@@ -65,7 +62,6 @@ function initialize() {
   map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
 
 
-
 }
 
 
@@ -73,7 +69,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 //Geocoding
 function codeAddress(address) {
-  //var address = $("#c1_location").val();
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
@@ -81,7 +76,7 @@ function codeAddress(address) {
           map: map,
           position: results[0].geometry.location
       });
-      var contentString = document.getElementById('location').value;
+      var contentString = address;
 
     	var infowindow = new google.maps.InfoWindow({
      	 content: contentString,

@@ -72,8 +72,8 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 //Geocoding
-function codeAddress() {
-  var address = document.getElementById('location').value;
+function codeAddress(address) {
+  //var address = $("#c1_location").val();
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);

@@ -24,7 +24,8 @@ class IndexHandler(StaticFileHandler):
  
  
 application = tornado.web.Application([
-        (r'/', IndexHandler, {'path': 'public'}),
+        (r'/', IndexHandler, {'path': 'public'}), 
+        (r'/(.*)', StaticFileHandler, {'path': 'public/'})
         ], debug=True)
  
 #-----------------------------------------------------------------------------

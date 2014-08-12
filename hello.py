@@ -6,8 +6,14 @@ import tornado.web
 from tornado.web import (RequestHandler, StaticFileHandler, Application,asynchronous)
 from tornado.websocket import WebSocketHandler
 from tornado.httpclient import AsyncHTTPClient
+from flask import Flask
 
 HTTP_CLIENT = AsyncHTTPClient()
+
+app = Flask(__name__)
+
+@app.route('/')
+
 
 # GET USER OPTIONS
 def parse_cmdln():
@@ -24,8 +30,7 @@ class IndexHandler(StaticFileHandler):
  
  
 application = tornado.web.Application([
-        (r'/', IndexHandler, {'path': 'public'}), 
-        (r'/(.*)', StaticFileHandler, {'path': 'public/'})
+        (r'/', IndexHandler, {'path': 'public'}),
         ], debug=True)
  
 #-----------------------------------------------------------------------------

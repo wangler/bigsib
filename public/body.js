@@ -1,6 +1,6 @@
 /*//BODY
 
-!
+
 $(function() {
     var User = Backbone.Model.extend({
         schema: {

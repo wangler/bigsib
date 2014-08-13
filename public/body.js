@@ -54,13 +54,43 @@ bootbox.confirm("<form id='infos' action=''>\
     //Main model definition
     var User = Backbone.Model.extend({
         schema: {
+            date: 'Date',
+            time: {type: 'Select', options: ['', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am', '6am']},
             location:      { validators: ['required', 'Text'] },
-           
+            incident: {type: 'Select', options: ['', 'verbal harassment', 'groping', 'stalking', 'physical assault', 'rape']},
+            Height:      { type: 'Select', options: ['', '<5ft', '5ft - 5ft4', '5ft5 - 5ft7', '5ft7-5ft9', '5ft10 - 6ft', '6ft1 - 6ft3', '>6ft'] },
+            Weight:  { type: 'Select', options: ['', 'slender', 'average', 'muscular', 'heavyset'] },
+            EyeColor:  { type: 'Select', options: ['', 'blue', 'brown', 'green', 'hazel'] },
+            HairColor: {type:'Select', options:['', 'light brown', 'dark brown', 'black', 'red', 'blonde', 'dirty blonde', 'other']},
+            Complexion: {type:'Select', options: ['', 'pale white', 'medium white to olive', 'olive to light brown', 'brown', 'very dark brown']},
+            Gender: { type: 'Select', options: ['', 'Male', 'Female', 'Other'] },
+            UniqueFeatures: 'Text',
+            Relationship: {type:'Select', options: ['', 'stranger', 'aquaintance', 'significant other', 'intimate partner', 'friend', 'relative']},
+            Occurences: {type: 'Select', options: ['', 'once', 'several times', 'regularly']},
+            email: { validators: ['required', 'email'] }
+
+            
+             
         }
     });
     
     var user = new User({
-        location: 'Enter Location'
+            date: new Date(),
+            time: '',
+            location: '',
+            incident: '',
+            Height:   '',
+            Weight:  '',
+            EyeColor:  '',
+            HairColor: '',
+            Complexion: '',
+            Gender: '',
+            UniqueFeatures: '',
+            Relationship: '',
+            Occurences: '',
+            email: '',
+
+        
     });
     
     //The form
@@ -74,6 +104,7 @@ jQuery("#reportbtn").on("click", function(e) {
     bootbox.confirm(form.el, function(result) {
         if(result)
         address = $("#c1_location").val();
+        date = $("#c1_date").val();
         //$('#infos').submit();
         codeAddress(address)
 });

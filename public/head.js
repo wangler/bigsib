@@ -76,7 +76,7 @@ function codeAddress(address) {
           map: map,
           position: results[0].geometry.location
       });
-      var contentString = address;
+      var contentString = date;
 
     	var infowindow = new google.maps.InfoWindow({
      	 content: contentString,

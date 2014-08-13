@@ -1,4 +1,4 @@
-//HEAD//
+//HEAD///
 
 
 $(document).on("click", ".alert", function(e) {
